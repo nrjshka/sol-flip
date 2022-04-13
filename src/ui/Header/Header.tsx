@@ -1,7 +1,8 @@
 import React from 'react'
 
-import { PageHeader, Button } from 'antd'
+import { PageHeader } from 'antd'
+import { WalletButton } from '../WalletButton'
 
-const Header: React.FC = () => <PageHeader title="Solana Flip Coins" extra={[<Button>Connect Account</Button>]} />
+const Header: React.FC = () => <PageHeader title="Solana Flip Coins" extra={[<WalletButton />]} />
 
 export { Header }
