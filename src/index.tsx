@@ -1,11 +1,18 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import 'antd/dist/antd.css'
-import './index.css'
-import { App } from './pages'
-import reportWebVitals from './reportWebVitals'
+import 'antd/dist/antd.css';
+import './index.css';
 
-import { SolanaConnector } from './ui'
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+import { App } from './pages';
+import reportWebVitals from './reportWebVitals';
+import {
+  loadApp,
+  store,
+} from './store';
+import { SolanaConnector } from './ui';
+
+store.dispatch(loadApp())
 
 ReactDOM.render(
   <React.StrictMode>
