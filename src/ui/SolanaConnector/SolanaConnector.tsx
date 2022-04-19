@@ -1,9 +1,13 @@
-import React, { FC, useMemo } from 'react'
+import React, {
+  FC,
+  useMemo,
+} from 'react';
 
-import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react'
-import { clusterApiUrl } from '@solana/web3.js'
-import { WalletAdapterNetwork } from '@solana/wallet-adapter-base'
-
+import { WalletAdapterNetwork } from '@solana/wallet-adapter-base';
+import {
+  ConnectionProvider,
+  WalletProvider,
+} from '@solana/wallet-adapter-react';
 import {
   LedgerWalletAdapter,
   PhantomWalletAdapter,
@@ -12,10 +16,11 @@ import {
   SolletExtensionWalletAdapter,
   SolletWalletAdapter,
   TorusWalletAdapter,
-} from '@solana/wallet-adapter-wallets'
+} from '@solana/wallet-adapter-wallets';
+import { clusterApiUrl } from '@solana/web3.js';
 
 const SolanaConnector: FC = ({ children }) => {
-  const network = WalletAdapterNetwork.Devnet
+  const network = WalletAdapterNetwork.Mainnet
 
   const endpoint = useMemo(() => clusterApiUrl(network), [network])
 
@@ -41,4 +46,4 @@ const SolanaConnector: FC = ({ children }) => {
   )
 }
 
-export { SolanaConnector }
+export { SolanaConnector };
