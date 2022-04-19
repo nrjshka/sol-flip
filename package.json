@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@ant-design/pro-layout": "^6.34.10",
+    "@reduxjs/toolkit": "^1.8.1",
     "@solana/buffer-layout": "^4.0.0",
     "@solana/spl-token": "^0.2.0",
     "@solana/wallet-adapter-base": "^0.9.5",
