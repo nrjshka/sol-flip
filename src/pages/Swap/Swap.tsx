@@ -1,6 +1,9 @@
 import { useEffect } from 'react';
 
-import { TOKEN_PROGRAM_ID } from '@solana/spl-token';
+import {
+  getAssociatedTokenAddress,
+  TOKEN_PROGRAM_ID,
+} from '@solana/spl-token';
 import {
   useConnection,
   useWallet,
@@ -45,14 +48,21 @@ const Swap = () => {
           console.log('account', account)
           const rawResult = account.data
           console.log('rawResult', rawResult)
-          console.log('result', buffer.decode(rawResult))
-          // Token.getAssociatedTokenAddress(ASSOCIATED_TOKEN_PROGRAM_ID, TOKEN_PROGRAM_ID, mint, owner, true)
+
+          const { mint, owner, amount } = buffer.decode(rawResult)
+          const associatedTokenAddress = getAssociatedTokenAddress(mint, owner, true, TOKEN_PROGRAM_ID)
+
+          associatedTokenAddress.then((data) => {
+            console.log({
+              publicKey: pubkey,
+              mint,
+              isAssociated: data.equals(pubkey),
+              amount,
+              isNative: false,
+            })
+          })
         }
       })
-
-      // const rawResult = SPL_ACCOUNT_LAYOUT.decode(account.data)
-      // const { mint, amount } = rawResult
-      // const associatedTokenAddress = await Spl.getAssociatedTokenAccount({ mint, owner })
     }
   }, [connection, publicKey])
 
