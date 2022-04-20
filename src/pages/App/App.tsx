@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useAccount } from 'store';
+import { useLoadStore } from 'store';
 import { Header } from 'ui';
 
 import ProLayout, { PageContainer } from '@ant-design/pro-layout';
@@ -9,7 +9,7 @@ import { Swap } from '../Swap';
 import styles from './App.module.scss';
 
 const App = () => {
-  useAccount()
+  useLoadStore()
 
   return (
     <div className={styles.appContainer}>

@@ -42,5 +42,7 @@ const useAccountStore = create<TUseAccountStore>((set, getStore) => ({
   },
 }))
 
+useAccountStore.subscribe((data) => console.log('useAccountStore', data))
+
 export { useAccountStore };
 export type { TUseAccountStore };
