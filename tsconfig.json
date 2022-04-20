@@ -21,7 +21,8 @@
     "jsx": "react-jsx",
     "paths": {
       "stream": ["./node_modules/readable-stream"]
-    }
+    },
+    "baseUrl": "src"
   },
   "include": [
     "src"
