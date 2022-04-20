@@ -9,7 +9,10 @@ import {
   getFetchAccountInfo,
   getIsConnected,
 } from './selectors';
-import { useAccountStore } from './useAccountStore';
+import {
+  initialState,
+  useAccountStore,
+} from './useAccountStore';
 
 function useAccount() {
   const { connection } = useConnection()
@@ -26,6 +29,8 @@ function useAccount() {
         isConnected: connected,
         connection,
       })
+    } else {
+      useAccountStore.setState(initialState)
     }
   }, [connected, publicKey, connection])
 
