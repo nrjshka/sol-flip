@@ -52,6 +52,7 @@ const useAccountStore = create<TUseAccountStore>((set, getStore) => ({
 
       set(() => ({
         balance: 0,
+        allOwnedTokens: [],
       }))
     }
   },
