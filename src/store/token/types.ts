@@ -1,3 +1,5 @@
+import { RawAccount } from '@solana/spl-token';
+
 type RawToken = {
   symbol: string
   name: string
@@ -22,6 +24,8 @@ type TokenList = {
 
 type TUseTokenStore = {
   rawTokensList: TokenList
+  tokensList: string[]
+  loadTokensList: (allOwnedTokens: RawAccount[]) => void
 }
 
 export type { RawToken, TokenList, TUseTokenStore };
