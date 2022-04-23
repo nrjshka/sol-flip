@@ -16,10 +16,12 @@ type TokenList = {
     patch: Number
   }
   official: RawToken[]
+  unOfficial: RawToken[]
+  blacklist: RawToken[]
 }
 
 type TUseTokenStore = {
-  tokensList: TokenList
+  rawTokensList: TokenList
 }
 
 export type { RawToken, TokenList, TUseTokenStore };
