@@ -13,14 +13,7 @@ const WalletSwap: React.FC<TWalletSwap> = ({ label, tokens }) => {
 
   return (
     <Form.Item label={label}>
-      <Input.Group compact>
-        <Form.Item>
-          <Select options={options} />
-        </Form.Item>
-        <Form.Item>
-          <Input />
-        </Form.Item>
-      </Input.Group>
+      <Input addonBefore={<Select options={options} onSelect={() => {}} />} />
     </Form.Item>
   )
 }

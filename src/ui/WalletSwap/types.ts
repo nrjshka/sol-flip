@@ -1,8 +1,8 @@
-import { RawToken } from 'store/token/types';
+import { Token } from 'store/token/types';
 
 type TWalletSwap = {
   label: string
-  tokens: RawToken[]
+  tokens: Token[]
 }
 
 export type { TWalletSwap };

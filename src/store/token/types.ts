@@ -9,6 +9,10 @@ type RawToken = {
   icon: string
 }
 
+type Token = {
+  balance: number
+} & RawToken
+
 type TokenList = {
   name: string
   timestamp: string
@@ -24,8 +28,8 @@ type TokenList = {
 
 type TUseTokenStore = {
   rawTokensList: TokenList
-  tokensList: string[]
-  loadTokensList: (allOwnedTokens: RawAccount[]) => void
+  tokensList: Set<Token>
+  loadTokensList: (opt: { allOwnedTokens: RawAccount[]; balance: number }) => void
 }
 
-export type { RawToken, TokenList, TUseTokenStore };
+export type { RawToken, Token, TokenList, TUseTokenStore };

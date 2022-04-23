@@ -1,24 +1,10 @@
 import create from 'zustand';
 
-import { RawAccount } from '@solana/spl-token';
-import {
-  Connection,
-  PublicKey,
-} from '@solana/web3.js';
-
+import { TUseAccountStore } from './types';
 import {
   fetchBalance,
   fetchTokenAccountsByOwner,
 } from './utils';
-
-type TUseAccountStore = {
-  isConnected: boolean
-  balance: number
-  allOwnedTokens: RawAccount[]
-  connection: Connection | null
-  publicKey: PublicKey | null
-  fetchAccountInfo: VoidFunction
-}
 
 const initialState: Omit<TUseAccountStore, 'fetchAccountInfo'> = {
   isConnected: false,

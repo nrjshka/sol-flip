@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 
 import {
   getAllOwnedTokens,
+  getBalance,
   useAccountStore,
 } from 'store/account';
 
@@ -11,10 +12,11 @@ import { useTokenStore } from './useTokenStore';
 function useToken() {
   const loadTokenList = useTokenStore(getLoadTokensList)
   const allOwnedTokens = useAccountStore(getAllOwnedTokens)
+  const balance = useAccountStore(getBalance)
 
   useEffect(() => {
-    loadTokenList(allOwnedTokens)
-  }, [loadTokenList, allOwnedTokens])
+    loadTokenList({ allOwnedTokens, balance })
+  }, [loadTokenList, allOwnedTokens, balance])
 }
 
 export { useToken };
